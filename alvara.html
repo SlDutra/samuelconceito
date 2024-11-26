@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvará - Municípios do Paraná</title>
+    <style>
+        /* Estilo básico para a página */
+        body, html {
+            height: 100%; /* Garantir que ocupe toda a altura da tela */
+            margin: 0; /* Remover margens padrões */
+            display: flex; /* Usando flexbox para centralizar */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            background-color: #333; /* Cor de fundo */
+            color: white; /* Cor do texto */
+            font-family: Arial, sans-serif; /* Fonte padrão */
+        }
+
+        /* Estilo para o container da dashboard */
+        .dashboard {
+            width: 80%; /* Largura da área */
+            max-width: 1200px; /* Limitar a largura máxima */
+            text-align: center; /* Centralizar o texto dentro do container */
+            padding: 20px;
+            background-color: #444; /* Cor de fundo do container */
+            border-radius: 8px; /* Bordas arredondadas */
+        }
+
+        /* Estilo dos botões principais */
+        .service-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #1976D2;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+            margin: 10px;
+            border-radius: 10px;
+            min-width: 150px;
+        }
+
+        /* Efeito ao passar o mouse nos botões */
+        .service-btn:hover {
+            background-color: #1565C0;
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        /* Estilo para os botões dos municípios (mudando para vermelho) */
+        .municipios-buttons {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            justify-items: center; /* Centralizar os itens da grid */
+        }
+
+        .municipios-buttons button {
+            min-width: 120px;
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            background-color: #D32F2F; /* Cor vermelha */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+            border-radius: 10px; /* Bordas arredondadas nos botões */
+        }
+
+        /* Efeito de hover para os botões de municípios (vermelho mais escuro) */
+        .municipios-buttons button:hover {
+            background-color: #B71C1C; /* Cor de fundo vermelha mais escura */
+            transform: scale(1.05);
+            filter: brightness(0.8);
+        }
+
+        /* Link dentro dos botões */
+        .municipio-link {
+            text-decoration: none; /* Remover o sublinhado */
+            color: white; /* Garantir que o texto do link seja branco */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Botão para exibir os municípios -->
+        <button class="service-btn" onclick="toggleMunicipios()">Alvará</button>
+
+        <!-- A div que irá conter os botões dos municípios -->
+        <div class="municipios-buttons" id="municipios-buttons" style="display:none;">
+            <!-- Os botões dos municípios serão adicionados aqui via JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Lista com alguns municípios do Paraná (exemplo)
+        const municipiosParana = [
+            { nome: 'Curitiba', url: 'https://alvaracomercial.curitiba.pr.gov.br/Emissao.2aVia.aspx?2FB8CE65894F461DBF210E00BC74A9AF' },
+            { nome: 'São José dos Pinhais', url: 'http://licenciamento.sjp.pr.gov.br/sistemas/licenciamento/controller/issonline_economico/consulta_alvara.php' },
+            { nome: 'Maringá', url: 'http://venus.maringa.pr.gov.br:9900/fazendaonline/app/consultaPrevia?execution=e3s1' },  // Link de Maringá
+            { nome: 'Ponta Grossa', url: 'https://link-para-alvara/ponta-grossa.pdf' },
+            { nome: 'Cascavel', url: 'https://link-para-alvara/cascavel.pdf' },
+            { nome: 'Foz do Iguaçu', url: 'https://link-para-alvara/foz-iguacu.pdf' },
+            // Adicione os outros municípios conforme necessário
+        ];
+
+        // Função para mostrar ou esconder os botões dos municípios
+        function toggleMunicipios() {
+            const municipiosContainer = document.getElementById('municipios-buttons');
+            if (municipiosContainer.style.display === 'none' || municipiosContainer.style.display === '') {
+                municipiosContainer.style.display = 'grid';
+                addMunicipios();
+            } else {
+                municipiosContainer.style.display = 'none';
+            }
+        }
+
+        // Função para adicionar os botões com os nomes dos municípios
+        function addMunicipios() {
+            const municipiosContainer = document.getElementById('municipios-buttons');
+            municipiosContainer.innerHTML = ''; // Limpa os botões antes de adicionar novamente
+
+            municipiosParana.forEach(municipio => {
+                // Cria o botão para cada município
+                const button = document.createElement('button');
+                const link = document.createElement('a');
+                link.href = municipio.url;  // Link para o alvará do município
+                link.target = '_blank';  // Abrir o link em uma nova aba
+                link.classList.add('municipio-link');  // Adicionar a classe para o estilo
+
+                // Adiciona o nome do município ao link
+                link.innerText = municipio.nome;
+
+                // Coloca o link dentro do botão
+                button.appendChild(link);
+
+                // Adiciona o botão à lista de municípios
+                municipiosContainer.appendChild(button);
+            });
+        }
+    </script>
+
+</body>
+</html>

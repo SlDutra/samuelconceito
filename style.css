@@ -1,0 +1,254 @@
+/* Resetando margens e padding para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2e2e2e; /* Cinza escuro */
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh; /* A altura ocupa 100% da tela */
+    margin: 0; /* Retira a margem padrão do body */
+}
+
+/* Estilos do Header */
+header {
+    width: 100%;
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 15px 15px; /* Bordas arredondadas na parte inferior */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave no header */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Garante que o cabeçalho esteja acima de outros elementos */
+}
+
+/* Logo */
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f44336; /* Vermelho */
+    margin-left: 20px;
+}
+
+/* Navegação */
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px; /* Bordas arredondadas nos links */
+    transition: background-color 0.3s;
+}
+
+header nav a:hover {
+    background-color: #f44336; /* Vermelho quando passar o mouse */
+}
+
+/* Container para o conteúdo abaixo do header */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 120px; /* Adiciona mais margem abaixo do header fixo */
+    text-align: center;
+}
+
+/* Título "Conceito" */
+h1 {
+    color: #f44336; /* Vermelho */
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+/* Subtítulo "Bem-vindo à plataforma" */
+.welcome-message {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* Caixa de login */
+.login-box {
+    background-color: #333; /* Cinza escuro */
+    padding: 40px;
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px; /* Define uma largura fixa para a caixa de login */
+    margin: 0 auto;
+}
+
+/* Título de login */
+h2 {
+    color: #f44336; /* Vermelho */
+    margin-bottom: 30px;
+}
+
+/* Estilo dos campos de input */
+.textbox {
+    margin-bottom: 20px;
+}
+
+.textbox input {
+    width: 100%; /* Faz os campos ocuparem 100% da largura da caixa */
+    padding: 10px;
+    border: 2px solid #f44336; /* Vermelho */
+    border-radius: 10px; /* Bordas arredondadas nos inputs */
+    background-color: #444; /* Cinza mais claro */
+    color: #fff;
+    font-size: 16px;
+}
+
+.textbox input:focus {
+    outline: none;
+    border-color: #ff5722; /* Vermelho mais forte */
+}
+
+/* Estilo do botão */
+.btn {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%; /* O botão ocupa 100% da largura da caixa */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro */
+}
+
+/* Tela após login */
+.dashboard {
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: center;
+}
+
+.dashboard h1 {
+    color: #f44336; /* Vermelho */
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+.dashboard p {
+    font-size: 24px; /* Tamanho do texto de boas-vindas */
+    margin-top: 0;
+}
+
+/* Estilos para a área de serviços */
+.services {
+    display: flex;
+    flex-direction: column; /* Organiza as linhas verticalmente */
+    gap: 20px; /* Espaço entre as linhas (vertical) */
+    align-items: center; /* Centraliza as linhas no eixo horizontal */
+}
+
+/* Para a linha superior de botões e linha inferior */
+.top-row, .bottom-row {
+    display: flex;
+    justify-content: space-evenly; /* Distribui os botões igualmente com espaço entre eles */
+    width: 100%; /* Garante que a linha ocupe toda a largura disponível */
+    max-width: 1100px; /* Limita a largura máxima para um melhor controle visual */
+    gap: 20px; /* Espaço entre os botões (horizontal) */
+    margin: 0 auto; /* Centraliza as linhas */
+}
+
+/* Estilos dos botões */
+.service-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #d32f2f;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease; /* Transições de fundo, zoom e escurecimento */
+    text-align: center; /* Alinha o texto do botão ao centro */
+    margin: 5px; /* Adiciona espaçamento entre os botões */
+    border-radius: 10px; /* Bordas arredondadas nos botões */
+    min-width: 150px; /* Tamanho mínimo para os botões */
+    width: 100%; /* Faz os botões crescerem proporcionalmente */
+}
+
+.service-btn:hover {
+    background-color: #b71c1c; /* Cor de fundo mais escura */
+    transform: scale(1.1); /* Efeito de zoom */
+    filter: brightness(0.8); /* Escurece o botão */
+}
+
+/* Responsividade - Ajuste para telas menores */
+@media screen and (max-width: 768px) {
+    .services {
+        gap: 15px; /* Menos espaçamento em telas menores */
+    }
+
+    .top-row, .bottom-row {
+        flex-direction: column; /* Organiza os botões em coluna */
+        align-items: center; /* Centraliza os botões */
+    }
+
+    .service-btn {
+        width: 90%; /* Botões ocupando quase toda a largura */
+        margin-bottom: 15px; /* Adiciona espaço entre os botões */
+    }
+
+    /* Ajustes na caixa de login */
+    .login-box {
+        width: 80%; /* Aumenta a largura da caixa de login em telas menores */
+        padding: 20px; /* Ajusta o padding para telas menores */
+    }
+
+    .textbox input {
+        font-size: 14px; /* Reduz o tamanho da fonte nos inputs em telas menores */
+    }
+
+    .btn {
+        font-size: 14px; /* Reduz o tamanho da fonte do botão em telas menores */
+    }
+}
+
+/* Estilos do botão de Power (Liga/Desliga) */
+.power-btn {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    font-size: 20px; /* Tamanho do ícone */
+    cursor: pointer; /* Aparece como um botão clicável */
+    margin-left: 6px; /* Distância entre "Conceito" e o ícone */
+    padding: 0; /* Remove o padding, garantindo que o botão não tenha espaços extras */
+}
+
+.power-btn i {
+    color: #f44336; /* Cor do ícone (vermelho) */
+}
+
+.power-btn:hover i {
+    color: #b71c1c; /* Cor do ícone quando passar o mouse sobre ele */
+}
+
+.power-btn:focus {
+    outline: none; /* Remove o contorno que aparece ao focar no botão */
+}

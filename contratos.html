@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #333;
+        }
+
+        .dashboard {
+            width: 100%;
+            text-align: center;
+        }
+
+        .service-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #d32f2f;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+            text-align: center;
+            margin: 10px;
+            border-radius: 10px;
+            min-width: 150px;
+        }
+
+        .service-btn:hover {
+            background-color: #b71c1c;
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .additional-buttons {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .additional-buttons .service-btn {
+            background-color: #1976D2;
+            margin: 5px;
+        }
+
+        .additional-buttons .service-btn:hover {
+            background-color: #1565C0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <button class="service-btn" onclick="toggleAdditionalButtons()">Contrato Social</button>
+        <button class="service-btn" onclick="toggleAdditionalButtons()">Contrato Contábil</button>
+
+        <div class="additional-buttons" id="additional-buttons">
+            <a href="file:///H:/Drives%20compartilhados/Conceito%20Documentos/Departamento%20de%20Legalização/6%20-%20Contrato%20de%20Prest.%20Serv.%20Contábeis%20e%20Distrato/Adendo%20Conceito.docx" target="_blank">
+                <button class="service-btn">Adendo Conceito</button>
+            </a>
+            <a href="file:///H:/Drives%20compartilhados/Conceito%20Documentos/Departamento%20de%20Legalização/6%20-%20Contrato%20de%20Prest.%20Serv.%20Contábeis%20e%20Distrato/Contrato%20-%20Conceito%20com%20Desconto.docx" target="_blank">
+                <button class="service-btn">Contrato - Conceito com Desconto</button>
+            </a>
+            <a href="file:///H:/Drives%20compartilhados/Conceito%20Documentos/Departamento%20de%20Legalização/6%20-%20Contrato%20de%20Prest.%20Serv.%20Contábeis%20e%20Distrato/Contrato%20-%20Conceito.docx" target="_blank">
+                <button class="service-btn">Contrato - Conceito</button>
+            </a>
+            <a href="file:///H:/Drives%20compartilhados/Conceito%20Documentos/Departamento%20de%20Legalização/6%20-%20Contrato%20de%20Prest.%20Serv.%20Contábeis%20e%20Distrato/Distrato%20-%20Conceito.docx" target="_blank">
+                <button class="service-btn">Distrato - Conceito</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleAdditionalButtons() {
+            var additionalButtons = document.getElementById('additional-buttons');
+            additionalButtons.style.display = (additionalButtons.style.display === 'none' || additionalButtons.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>

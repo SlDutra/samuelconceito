@@ -1,0 +1,166 @@
+/* Resetando estilos para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para garantir que o layout ocupe toda a tela */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center;     /* Centraliza o conteúdo verticalmente */
+    flex-direction: column;
+    background-color: #2e2e2e; /* Cor de fundo escura */
+    color: #ffffff; /* Cor de texto clara */
+    font-family: 'Roboto', sans-serif; /* Fonte moderna e legível */
+    padding: 20px;
+    overflow: hidden; /* Remove a rolagem vertical */
+}
+
+/* Adiciona um espaçamento para títulos em telas menores */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 8vw; /* Reduz o tamanho do título para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 10vw; /* Reduz ainda mais em telas muito pequenas */
+    }
+}
+
+/* Lista de documentos */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 800px; /* Largura aumentada para um visual mais espaçado */
+    margin-bottom: 30px;
+    border: 2px solid #e74c3c;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.2); /* Sombra suave ao redor da lista */
+}
+
+/* Estilo de cada item da lista */
+li {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    padding-left: 20px;
+    position: relative;
+    padding-right: 20px;
+    border-bottom: 1px solid rgba(231, 76, 60, 0.2); /* Linhas finas entre os itens */
+    transition: all 0.3s ease;  /* Transição suave */
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+/* Efeito de foco para os itens da lista */
+li:hover {
+    background: rgba(231, 76, 60, 0.1);  /* Fundo suave no hover */
+    transform: translateX(5px); /* Efeito sutil de deslizar para a direita */
+}
+
+/* Estilo de cada item da lista com destaque para os subtítulos */
+li strong {
+    color: #e74c3c;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo do link convertido em botão */
+.btn-border {
+    display: inline-block;
+    background-color: transparent;
+    color: #e74c3c;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #e74c3c;
+    border-radius: 30px; /* Bordas arredondadas para um visual mais futurista */
+    font-size: 1.3em;
+    margin-top: 40px;
+    transition: all 0.3s ease; /* Transição suave no hover */
+    cursor: pointer;
+    width: 100%;
+    max-width: 350px; /* Largura do botão mais espaçada */
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); /* Sombra suave do botão */
+    background: linear-gradient(45deg, rgba(231, 76, 60, 0.1), rgba(231, 76, 60, 0.2)); /* Gradiente suave */
+}
+
+/* Estilo ao passar o mouse sobre o botão */
+.btn-border:hover {
+    background-color: #e74c3c;
+    color: white;
+    transform: scale(1.05); /* Leve aumento de tamanho no hover */
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5); /* Efeito de luz ao passar o mouse */
+}
+
+/* Animação do botão */
+.btn-border:active {
+    transform: scale(0.98); /* Efeito de contração ao clicar */
+}
+
+/* Estilo de campos de entrada (como a barra de pesquisa) */
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    background-color: #333;
+    border: 2px solid #e74c3c;
+    border-radius: 20px; /* Bordas arredondadas */
+    color: #fff;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo ao focar no campo de pesquisa */
+.search-input:focus {
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
+}
+
+/* Resultado da busca */
+.cnae-result {
+    background-color: #333;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.3); /* Sombra suave */
+}
+
+/* Itens de resultado da busca */
+.cnae-item {
+    padding: 10px;
+    border-bottom: 1px solid rgba(231, 76, 60, 0.3);
+    font-size: 1.1em;
+}
+
+.cnae-item:last-child {
+    border-bottom: none;
+}
+
+/* Adiciona hover ao item da busca */
+.cnae-item:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    cursor: pointer;
+}

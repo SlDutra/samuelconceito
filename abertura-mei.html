@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentos Necessários para Abrir uma MEI</title>
+    <link rel="stylesheet" href="mei.css"> <!-- Link para o arquivo CSS externo -->
+    <style>
+        /* Estilos gerais da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: space-between; /* Alinhamento para o conteúdo principal e o dicionário */
+            padding: 20px;
+        }
+
+        .dashboard {
+            flex: 1; /* O conteúdo principal ocupa o restante do espaço */
+            padding: 20px;
+            max-width: 60%;
+        }
+
+        h1, h2 {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Estilo para o botão */
+        .btn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Estilo para o dicionário à direita */
+        .dictionary {
+            width: 300px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-left: 20px;
+            border-radius: 8px;
+            position: sticky; /* Fixa o dicionário enquanto rola */
+            top: 20px;
+        }
+
+        .dictionary h3 {
+            font-size: 1.5em;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        /* Barra de pesquisa */
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* Resultados da busca */
+        .result {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .result li {
+            font-size: 1em;
+            margin-bottom: 12px;
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Conteúdo principal -->
+    <div class="dashboard">
+        <h1>Documentos necessários para abrir uma MEI</h1>
+
+        <h2>Documentos Pessoais:</h2>
+        <ul id="personal-docs">
+            <li>CPF</li>
+            <li>RG ou CNH</li>
+            <li>Comprovante de endereço pessoal e da sede da Empresa</li>
+            <li>Título de eleitor (caso tenha declarado IRPF)</li>
+        </ul>
+
+        <h2>Outras Informações:</h2>
+        <ul id="other-info">
+            <li>Informações sobre a atividade econômica (CNAE) que será exercida</li>
+            <li>Capital social da empresa</li>
+        </ul>
+
+        <h2>Login do Gov.br:</h2>
+        <ul id="login-info">
+            <li>CPF e senha do empreendedor para acessar o portal MEI no Gov.br e realizar o cadastro</li>
+        </ul>
+
+        <!-- Botão "Abrir MEI" com link para o portal do Gov.br -->
+        <a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei" class="btn" target="_blank">Abrir MEI</a>
+    </div>
+
+    <!-- Dicionário à direita -->
+    <div class="dictionary">
+        <h3>Consulta CNAE</h3>
+
+        <!-- Barra de pesquisa -->
+        <input type="text" id="searchInput" class="search-bar" placeholder="Pesquisar CNAE..." />
+
+        <!-- Resultados da consulta -->
+        <ul id="resultList" class="result"></ul>
+    </div>
+
+    <!-- Script para filtrar resultados -->
+    <script>
+        // Banco de dados de CNAEs
+        const cnaes = [
+            { code: '47.11-3/01', description: 'Comércio varejista em geral' },
+            { code: '47.61-0/01', description: 'Comércio varejista de vestuário' },
+            { code: '47.62-8/01', description: 'Comércio varejista de calçados' },
+            { code: '47.71-6/01', description: 'Comércio varejista de alimentos' },
+            { code: '47.81-4/00', description: 'Comércio varejista de móveis' },
+            { code: '14.11-3/01', description: 'Confecção de roupas no atacado' },
+            { code: '14.12-1/01', description: 'Confecção de roupas sob medida' },
+            { code: '25.61-1/00', description: 'Fabricação de móveis de madeira' },
+            { code: '33.20-5/00', description: 'Manutenção de máquinas' },
+            { code: '62.01-5/01', description: 'Desenvolvimento de software' },
+            { code: '63.11-9/00', description: 'Processamento de dados' },
+            { code: '71.11-1/01', description: 'Arquitetura' },
+            { code: '74.10-4/01', description: 'Consultoria empresarial' },
+            { code: '82.99-7/99', description: 'Serviços a empresas' },
+            { code: '96.02-5/01', description: 'Salões de beleza' },
+            { code: '90.01-9/01', description: 'Produção de espetáculos musicais' },
+            { code: '90.02-7/01', description: 'Produção de filmes e vídeos' },
+            { code: '74.10-4/02', description: 'Design gráfico' },
+            { code: '90.03-1/01', description: 'Agentes de espetáculos' },
+            { code: '86.30-5/01', description: 'Consultoria em nutrição' },
+            { code: '86.50-0/01', description: 'Fisioterapia' },
+            { code: '96.04-2/00', description: 'Estética e cuidados com a pele' },
+            { code: '62.02-3/00', description: 'Desenvolvimento de software sob encomenda' },
+            { code: '62.09-1/01', description: 'Desenvolvimento de aplicativos' },
+            { code: '73.11-4/00', description: 'Agências de publicidade' },
+            { code: '49.32-0/01', description: 'Transporte de passageiros (táxi)' },
+            { code: '49.39-9/99', description: 'Outros transportes rodoviários' },
+            { code: '53.21-8/01', description: 'Serviço de entregas' },
+            { code: '43.21-5/01', description: 'Instalação elétrica' },
+            { code: '43.22-3/01', description: 'Instalação hidráulica' },
+            { code: '43.31-1/01', description: 'Obras de alvenaria' },
+            { code: '01.11-3/01', description: 'Cultivo de arroz' },
+            { code: '01.21-1/01', description: 'Cultivo de hortaliças' },
+            { code: '02.21-0/01', description: 'Pescadores artesanais' },
+            { code: '85.99-6/99', description: 'Outros serviços de ensino' },
+            { code: '85.41-3/01', description: 'Ensino de idiomas' },
+            { code: '85.99-6/01', description: 'Cursos de arte, design e música' },
+            { code: '82.30-0/01', description: 'Organização de eventos' },
+            { code: '95.11-8/01', description: 'Reparação de computadores' },
+            { code: '96.03-3/00', description: 'Lavanderias' },
+            { code: '47.63-5/01', description: 'Comércio varejista de roupas' },
+            { code: '96.04-2/02', description: 'Salões de beleza e cabeleireiros' },
+        ];
+
+        // Exibir todos os CNAEs inicialmente
+        function displayCNAEs(cnaes) {
+            const resultList = document.getElementById('resultList');
+            resultList.innerHTML = '';
+            cnaes.forEach(cnae => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${cnae.code}: ${cnae.description}`;
+                resultList.appendChild(listItem);
+            });
+        }
+
+        // Filtrando os resultados enquanto o usuário digita
+        document.getElementById('searchInput').addEventListener('input', function() {
+            var filter = this.value.toUpperCase();
+            var filteredCNAEs = cnaes.filter(function(cnae) {
+                return cnae.code.includes(filter) || cnae.description.toUpperCase().includes(filter);
+            });
+            displayCNAEs(filteredCNAEs);
+        });
+
+        // Exibir todos os CNAEs ao carregar a página
+        displayCNAEs(cnaes);
+    </script>
+
+</body>
+</html>
+
+<!-- Link discreto abaixo do botão -->
+<a href="https://youtu.be/acIloPocI8I?si=Dorwxrz2M4c-KL_F" class="discreet-link" target="_blank">Assista ao vídeo explicativo</a>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo para garantir que o layout ocupe toda a tela */
+        body, html {
+            height: 100%; /* Faz o corpo da página ocupar toda a altura da tela */
+            margin: 0; /* Remove as margens padrões */
+            display: flex;
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            align-items: center; /* Alinha ao centro verticalmente */
+            flex-direction: column; /* Disposição dos elementos na vertical */
+        }
+
+        /* Estilo para o conteúdo principal */
+        .dashboard {
+            width: 100%; /* Faz o conteúdo ocupar toda a largura */
+            text-align: center; /* Centraliza o texto horizontalmente */
+            padding-top: 20px; /* Dá um pequeno espaçamento do topo */
+        }
+
+        /* Estilo dos botões */
+        .municipios-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            background-color: #e74c3c; /* Cor de fundo do botão */
+            color: white; /* Cor do texto */
+            border: none;
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease; /* Efeito de transição no hover */
+            width: 100%; /* Faz os botões ocuparem toda a largura disponível */
+            max-width: 300px; /* Limita a largura máxima dos botões */
+        }
+
+        /* Efeito de hover nos botões */
+        .municipios-btn:hover {
+            background-color: #c0392b; /* Cor de fundo do botão no hover */
+            transform: scale(1.05); /* Leve aumento de tamanho ao passar o mouse */
+        }
+
+        /* Alinhamento dos botões em coluna */
+        .municipios-container {
+            display: flex;
+            flex-direction: column; /* Organiza os botões em uma coluna */
+            align-items: center; /* Centraliza os botões horizontalmente */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <div class="municipios-container">
+            <button class="municipios-btn">Curitiba</button>
+            <button class="municipios-btn">Londrina</button>
+            <button class="municipios-btn">Maringá</button>
+            <button class="municipios-btn">Ponta Grossa</button>
+            <button class="municipios-btn">Cascavel</button>
+            <button class="municipios-btn">Foz do Iguaçu</button>
+            <button class="municipios-btn">São José dos Pinhais</button>
+            <button class="municipios-btn">Colombo</button>
+            <button class="municipios-btn">Guarapuava</button>
+            <button class="municipios-btn">Araucária</button>
+        </div>
+    </div>
+
+</body>
+</html>

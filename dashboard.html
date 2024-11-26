@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito</title>
+    <link rel="stylesheet" href="style.css"> <!-- Arquivo principal -->
+    <link rel="stylesheet" href="services.css"> <!-- Novo arquivo de estilo para os serviços -->
+    <!-- Font Awesome para ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header fixo -->
+    <header>
+        <div class="logo">
+            Conceito
+            <!-- Ícone de power (ligar/desligar) ao lado do nome -->
+            <button class="power-btn" onclick="togglePower()">
+                <i class="fas fa-power-off"></i> <!-- Ícone de power (ligar/desligar) -->
+            </button>
+        </div>
+        <nav>
+            <a href="javascript:void(0);" class="service-btn" onclick="toggleServices()">Serviços</a> <!-- Botão "Serviços" -->
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal (inicialmente oculto) -->
+    <div class="container" id="content" style="display: none;">
+        <div class="dashboard">
+            <!-- Título e mensagem removidos ao clicar em "Serviços" -->
+            <div id="intro">
+                <h1>Conceito</h1>
+                <p>Bem-vindo à plataforma!</p>
+            </div>
+
+            <!-- Menu suspenso de Serviços -->
+            <div class="services" id="services-menu">
+                <!-- Botão para fechar o menu (X) -->
+                <button class="close-btn" onclick="closeServices()">X</button>
+                
+                <button class="service-btn" onclick="window.location.href='abertura-mei.html'">Abertura de MEI</button>
+                <button class="service-btn" onclick="window.location.href='abertura-empresa.html'">Abertura de Empresa</button>
+                <button class="service-btn" onclick="window.location.href='transformacoes.html'">Transformações</button>
+                <button class="service-btn" onclick="window.location.href='alteracoes.html'">Alterações</button>
+                <button class="service-btn" onclick="window.location.href='baixa-mei.html'">Baixa MEI</button>
+                <button class="service-btn" onclick="window.location.href='baixa-empresa.html'">Baixa Empresa</button>
+                
+                <!-- Botão para "Licenciamento CLCB" atualizado -->
+                <button class="service-btn" onclick="window.open('https://www.bombeiros.pr.gov.br/PrevFogo/Pagina/Solicitacao-de-Vistoria', '_blank')">Licenciamento CLCB</button>
+                
+                <button class="service-btn" onclick="window.location.href='licenciamento-vigilancia.html'">Licenciamento Vigilância</button>
+                <button class="service-btn" onclick="window.location.href='licenciamento-meio-ambiente.html'">Licenciamento Meio Ambiente</button>
+                <button class="service-btn" onclick="window.location.href='alvara.html'">Alvará</button>
+                <button class="service-btn" onclick="window.location.href='contratos.html'">Contratos</button>
+                <!-- Novo botão para "Planilhas" -->
+                <button class="service-btn" onclick="window.location.href='https://docs.google.com/spreadsheets/d/1KhfkqRyZAVHyex14uBI6AMDMVbuxVzsi/edit?pli=1&gid=456236411'">Planilhas</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleServices() {
+            var content = document.getElementById("content");
+            var intro = document.getElementById("intro");
+            var servicesMenu = document.getElementById("services-menu");
+
+            // Alterna a visibilidade do conteúdo
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block"; // Exibe o conteúdo
+                intro.style.display = "none";    // Esconde o título e mensagem
+                servicesMenu.style.display = "block"; // Exibe o menu suspenso
+            } else {
+                content.style.display = "none";  // Oculta o conteúdo
+                intro.style.display = "block";   // Exibe o título e mensagem novamente
+                servicesMenu.style.display = "none"; // Esconde o menu de serviços
+            }
+        }
+
+        // Função chamada ao clicar no ícone de power (ligar/desligar)
+        function togglePower() {
+            // Redireciona para a página de login (index.html)
+            window.location.href = "index.html";
+        }
+
+        // Função para fechar o menu de serviços
+        function closeServices() {
+            var servicesMenu = document.getElementById("services-menu");
+            servicesMenu.style.display = "none"; // Esconde o menu de serviços
+        }
+    </script>
+
+</body>
+</html>
+
+
